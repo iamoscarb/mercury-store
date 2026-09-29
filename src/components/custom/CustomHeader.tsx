@@ -4,12 +4,18 @@ import { useState, type ComponentPropsWithoutRef } from 'react'
 import { Menu, Search, ShoppingBag, UserRound, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Logo } from '@/shared/Logo/Logo'
+import { CustomDropdownMenu } from './CustomDropdownMenu'
 
 const NAV_LINKS = [
     { href: '#inicio', label: 'Inicio' },
     { href: '#catalogo', label: 'Catálogo' },
     { href: '#contacto', label: 'Contacto' },
 ] as const
+
+const CURRENCY = [
+    { title: 'México', subtitle: 'MXN $' },
+    { title: 'Estados Unidos', subtitle: 'USD $' }
+]
 
 interface IconButtonProps extends ComponentPropsWithoutRef<typeof Button> {
     label: string
@@ -87,13 +93,16 @@ export const CustomHeader = () => {
                     </div>
 
                     <div className="flex items-center gap-6">
-                        <button
+
+                        <CustomDropdownMenu menuContent={CURRENCY} triggerElement={<button
                             type="button"
-                            className="flex items-center gap-1 text-[10px] font-medium uppercase transition-opacity hover:opacity-60"
+                            className="flex items-center gap-1 text-[13px] font-medium uppercase transition-opacity hover:opacity-60"
                             aria-label="Seleccionar divisa"
                         >
                             MXN <span aria-hidden="true">⌄</span>
-                        </button>
+                        </button>} />
+
+
                         <IconButton label="Buscar">
                             <Search className="size-5" />
                         </IconButton>
