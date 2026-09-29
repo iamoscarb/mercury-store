@@ -21,7 +21,7 @@ function IconButton({ label, children, ...props }: IconButtonProps) {
             variant="ghost"
             size="icon"
             aria-label={label}
-            className="size-9 rounded-none"
+            className="size-9 tracking-[0.02em] transition-opacity hover:opacity-60 hover:bg-transparent!"
             {...props}
         >
             {children}
@@ -33,7 +33,7 @@ export const CustomHeader = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
-        <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/95 backdrop-blur-sm">
+        <header className="sticky top-0 z-50 border-b border-zinc-200 backdrop-blur-sm">
             <nav
                 aria-label="Navegación principal"
                 className="relative mx-auto flex h-18 max-w-360 items-center px-5 sm:px-10 lg:px-14"
@@ -74,7 +74,7 @@ export const CustomHeader = () => {
                             <li key={href}>
                                 <a
                                     href={href}
-                                    className="text-[10px] font-medium uppercase tracking-[0.02em] transition-opacity hover:opacity-60"
+                                    className="text-[13px] font-medium uppercase tracking-[0.02em] transition-opacity hover:opacity-60"
                                 >
                                     {label}
                                 </a>
@@ -95,13 +95,13 @@ export const CustomHeader = () => {
                             MXN <span aria-hidden="true">⌄</span>
                         </button>
                         <IconButton label="Buscar">
-                            <Search className="size-4" />
+                            <Search className="size-5" />
                         </IconButton>
                         <IconButton label="Mi cuenta">
-                            <UserRound className="size-4" />
+                            <UserRound className="size-5" />
                         </IconButton>
                         <IconButton label="Bolsa de compras">
-                            <ShoppingBag className="size-4" />
+                            <ShoppingBag className="size-5" />
                         </IconButton>
                     </div>
                 </div>
